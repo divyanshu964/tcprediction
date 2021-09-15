@@ -3,6 +3,7 @@ import joblib
 import numpy as np
 import logging
 import sys
+import os
 
 model= joblib.load('model.pkl')
 
@@ -49,6 +50,8 @@ if __name__=='__main__':
     app.logger.addHandler(logging.StreamHandler(sys.stdout))
     app.logger.setLevel(logging.ERROR)
     
+    print("PYTHONPATH:", os.environ.get('PYTHONPATH'))
+    print("PATH:", os.environ.get('PATH'))
     app.run(debug = False)
     
     
