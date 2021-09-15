@@ -5,9 +5,9 @@ itsdangerous==1.1.0
 Jinja2==2.11.3
 joblib
 MarkupSafe==1.1.1
-numpy
-scikit-learn
-scipy
-sklearn
+# numpy
+# scikit-learn
+# scipy
+# sklearn
 threadpoolctl==2.1.0
 Werkzeug==1.0.1
