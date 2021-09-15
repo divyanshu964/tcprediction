@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thermal Conductivity Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico')}}">
+    
+    <style>
+        .heading{
+            font-weight: 100;
+            font-size: 1.6em;
+            color:rgb(236, 130, 0);
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            text-shadow: 1px 1px 5px rgb(213, 231, 106);
+            
+            padding-left: 10px;
+            padding-top : 25px;
+            padding-bottom: 10px;
+        }
+        .text{
+            font-size: 25px;
+            color: #fffab8;
+            text-shadow: 1px 1px 5px #3f420c;
+            margin-right: 25px;
+            margin-top: 2px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .note{
+            font-size: 18px;
+            color: #c4c70e;
+            text-shadow: 1px 1px 3px #0b3744;
+            margin-top:13px;
+            margin-bottom: 5px;
+            margin-right:25px;
+        }
+
+        .form-control{
+            margin:10px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .navbar{
+            padding: 6px;
+            padding-left: 20px;
+        }
+        .navbar-brand{
+            text-shadow: 1px 1px 1px rgb(149, 141, 255);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        body{
+            background-image: url("{{ url_for('static', filename = '/mining-excavator.jpg')}}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar sticky-top navbar-light bg-light" align="left">
+        <a class="navbar-brand" style="margin-left:60px;" href="index.html">HOME</a>
+        <a class="navbar-brand" href="howitworks.html">HOW IT WORKS</a>
+        <a class="navbar-brand" style="margin-left:60px;" href="contact.html">CONTACT</a>
+    </nav>
+    <div class="container">
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="heading">THERMAL CONDUCTIVITY PREDICTION</h1>
+            </div>
+            <form method="POST" action="/">
+                <input class="form-control" type="text" name="Temperature" placeholder="Temperature (°C)">
+                <input class="form-control" type="text" name="Mass Loss" placeholder="Mass Loss (%)">
+                <input class="form-control" type="text" name="Density" placeholder="Density (g/cc)">
+                <input class="form-control" type="text" name="Porosity" placeholder="Porosity (%)">
+                <input class="form-control" type="text" name="P-Wave" placeholder="P-Wave (m/s)">
+                <input class="form-control" type="text" name="S-Wave" placeholder="S-Wave (m/s) ">
+                <input class="form-control" type="text" name="Ed" placeholder="Ed (GPa)">
+    
+                <button type="submit" style=margin:10px class="btn btn-primary">Submit </button>
+            </form>
+            <div class="row">
+                <p class="note">Note: Prediction is made on the basis of data taken through jalore granite mines.</p>
+            </div>
+
+            {% if tc %}
+                <div class="row">
+                    <p class="text">Thermal Coefficient for the data provided is : <i> {{tc}} W/mk</i> </p>    
+                </div>
+            {% endif %}
+    
+        </div>
+    </div>
+
+</body>
+</html>
